@@ -13,6 +13,6 @@
 <div class="type"> <strong>Type project:</strong> {{$project->type ? $project->type->name : 'Uncatecorized'}}</div>
 <div class="content"> <strong>Descritpion project:</strong> {{$project->description}}</div>
 
-<p>prova aggiunta campo per clone repo_2</p>
+<p>laravel-many-to-many_2</p>
 
 @endsection
