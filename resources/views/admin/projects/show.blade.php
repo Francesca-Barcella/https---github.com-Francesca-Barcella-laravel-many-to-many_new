@@ -13,6 +13,6 @@
 <div class="type"> <strong>Type project:</strong> {{$project->type ? $project->type->name : 'Uncatecorized'}}</div>
 <div class="content"> <strong>Descritpion project:</strong> {{$project->description}}</div>
 
-<p>laravel-many-to-many_2</p>
+<p>laravel-many-to-many_2 update - 18-01-2023 - ore 9:51 </p>
 
 @endsection
