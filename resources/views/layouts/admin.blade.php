@@ -70,6 +70,27 @@
                                     <i class="fas fa-pencil fa-sm fa-fw"></i> Project 
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <span data-feather="file" class="align-text-bottom"></span>
+                                    <i class="fa-solid fa-laptop-code"></i> Type 
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <span data-feather="file" class="align-text-bottom"></span>
+                                    <i class="fa-solid fa-code"></i> Technology 
+                                </a>
+                            </li>
+                            
+                            <!-- <li class="ps-3"><i class="fa-solid fa-layer-group"></i></li>
+                            <li class="ps-3"><i class="fa-solid fa-robot"></i></li>
+                            <li class="ps-3"><i class="fa-solid fa-suitcase"></i></li>
+                            <li class="ps-3"><i class="fa-solid fa-grip-vertical"></i></li>
+                            <li class="ps-3"><i class="fa-solid fa-graduation-cap"></i></li>
+                            <li class="ps-3"><i class="fa-solid fa-compass-drafting"></i></li>
+                            <li class="ps-3"><i class="fa-solid fa-burger"></i></li> -->
+                          
                         </ul>
                     </div>
                 </nav>

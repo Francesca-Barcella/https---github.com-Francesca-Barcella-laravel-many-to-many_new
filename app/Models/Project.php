@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Project extends Model
 {
@@ -29,5 +30,17 @@ class Project extends Model
 
         // one to one => one project to one category
         return $this->belongsTo(Type::class);
+    }
+
+    /**
+     * The roles that belong to the Technology
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+
+    //dentro il model di Technology definisco la relazione verso project
+    public function technologies(): BelongsToMany
+    {
+        return $this->belongsToMany(Technology::class);
     }
 }
