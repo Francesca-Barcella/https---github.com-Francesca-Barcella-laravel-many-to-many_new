@@ -73,6 +73,33 @@
     </div>
     @enderror
 
+    <!--CAMPO TECHNOLOGY -->
+    <div class="mb-3">
+      <label for="technologies" class="form-label">Technology</label>
+      <!--  name="technologies[]" messo al plurare e con array vuoto per far capire che name conterrà record multipli -->
+      <select multiple class="form-select form-select-lg" name="technologies[]" id="technologies">
+        <option value="" disabled>Select Technology</option>
+        @forelse($technologies as $technology)
+        <!-- aggiungo un if - else per mostrare gli errori di validazione-->
+        @if ($errors->any())
+        <!-- cerca nell'array l'id di technology selezionata, se è inclusa nella lista old imposta 'selected' e mostra l'id preselezionato altrimenti non fa nulla-->
+        <option value="{{$technology->id}}"{{ in_array($technology->id, old('technologies', [])) ? 'selected' : '' }}>{{$technology->name}}</option>
+        @else
+        <option value="{{$technology->id}}" {{$project->technologies->contains($technology->id) ? 'selected' : ''}}>{{$technology->name}}</option>
+        @endif
+        @empty
+        <option value="" disabled>No Technologies here</option>
+        @endforelse
+      </select>
+    </div>
+
+    <!-- messaggio di errore direttamente sotto al campo Technology -->
+    @error('technology_id')
+    <div class="alert alert-danger" role="alert">
+      {{$message}}
+    </div>
+    @enderror
+
     <!--CAMPO DESCRIPTION-->
     <div class="mb-3">
       <label for="description" class="form-label">Description</label>

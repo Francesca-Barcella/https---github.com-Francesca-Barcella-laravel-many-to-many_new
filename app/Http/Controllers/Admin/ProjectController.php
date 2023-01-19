@@ -78,7 +78,7 @@ class ProjectController extends Controller
             $project->technologies()->attach($val_data['technologies']);
         }
         //redirect alla pagina principale
-        return to_route('admin.projects.index')->with('message', "project '$project->title' added successfully");
+        return to_route('admin.projects.index')->with('message', "project $project->id ($project->title) added successfully");
     }
 
     /**
@@ -101,7 +101,8 @@ class ProjectController extends Controller
     public function edit(Project $project)
     {
         $types = Type::all();
-        return view('admin.projects.edit', compact('project', 'types'));
+        $technologies = Technology::all();
+        return view('admin.projects.edit', compact('project', 'types', 'technologies'));
     }
 
     /**
@@ -135,8 +136,14 @@ class ProjectController extends Controller
         //aggiornare il progetto
         $project->update($val_data);
 
+        if($request->has('technologies')){
+            $project->technologies()->sync($val_data['technologies']);
+        } else {
+            $project->technologies()->sync($val_data[]);
+        }
+
         //redirect
-        return to_route('admin.projects.index')->with('message', 'project added successfully');
+        return to_route('admin.projects.index')->with('message', "project $project->id ($project->title) updated successfully");
     }
 
     /**
