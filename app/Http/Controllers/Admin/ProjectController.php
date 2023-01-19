@@ -72,10 +72,13 @@ class ProjectController extends Controller
         //dd($val_data);
 
         //genrazione project
-        Project::create($val_data);
+        $project = Project::create($val_data);
 
+        if($request->has('technologies')){
+            $project->technologies()->attach($val_data['technologies']);
+        }
         //redirect alla pagina principale
-        return to_route('admin.projects.index')->with('message', 'project added successfully');
+        return to_route('admin.projects.index')->with('message', "project '$project->title' added successfully");
     }
 
     /**

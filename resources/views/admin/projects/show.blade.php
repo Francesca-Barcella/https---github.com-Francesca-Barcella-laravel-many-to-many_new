@@ -9,10 +9,10 @@
 @endif
 
 <h1>Title project: {{$project->title}}</h1>
-<h5>Slug Title project: {{$project->slug}}</h5>
-<div class="type"> <strong>Type project:</strong> {{$project->type ? $project->type->name : 'Uncatecorized'}}</div>
-<div class="content"> <strong>Descritpion project:</strong> {{$project->description}}</div>
+<div><strong>Slug Title project:</strong> {{$project->slug}}</div>
+<div><strong>Type project:</strong> {{$project->type ? $project->type->name : 'Uncatecorized'}}</div>
+<div><strong>Technology used:</strong> {{$project->technology}}</div>
+<div><strong>Descritpion project:</strong> {{$project->description}}</div>
 
-<p>laravel-many-to-many_2 update - 18-01-2023 - ore 9:51 </p>
 
 @endsection
