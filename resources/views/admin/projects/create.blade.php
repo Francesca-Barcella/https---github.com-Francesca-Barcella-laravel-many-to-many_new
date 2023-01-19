@@ -65,6 +65,27 @@
     </div>
     @enderror
 
+    <!--CAMPO TECHNOLOGY -->
+   <div class="mb-3">
+     <label for="technologies" class="form-label">Technology</label>
+    <!--  name="technologies[]" messo al plurare e con array vuoto per far capire che name conterrà record multipli -->
+     <select multiple class="form-select form-select-lg" name="technologies[]" id="technologies">
+      <option value="" disabled>Select Technology</option>
+      @forelse($technologies as $technology)
+      <option value="{{$technology->id}}">{{$technology->name}}</option>
+      @empty
+      <option value="" disabled>No Technologies here</option>
+      @endforelse
+    </select>
+   </div>
+
+    <!-- messaggio di errore direttamente sotto al campo Technology -->
+    @error('type_id')
+    <div class="alert alert-danger" role="alert">
+      {{$message}}
+    </div>
+    @enderror
+
     <!--CAMPO DESCRIPTION-->
     <div class="mb-3">
       <label for="description" class="form-label">Description</label>
