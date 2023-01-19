@@ -4,6 +4,8 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\Admin\TypeController;
+
 //use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
@@ -28,6 +30,11 @@ Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(
     Route::resource('projects', ProjectController::class)->parameters([
         'projects' => 'project:slug'
     ]);
+
+    Route::resource('types', TypeController::class)->parameters([
+        'types' => 'type:slug'
+        //excpet serve per escludere le rotte elencate perchè non ci serviranno - check con route:list
+    ])->except('show', 'create','edit');
 });
 
 
