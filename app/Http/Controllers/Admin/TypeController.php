@@ -6,8 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreTypeRequest;
 use App\Http\Requests\UpdateTypeRequest;
 use App\Models\Type;
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+
+//prova validation interna
+use Illuminate\Support\Facades\Validator;
 
 class TypeController extends Controller
 {
@@ -40,11 +44,21 @@ class TypeController extends Controller
      */
     public function store(StoreTypeRequest $request)
     {
+        // dd('ok');
+        // $val_data = $request->validate([
+        //     'name' => 'required',
+        //     'slug' => 'required'
+        // ]);
+
+        // dd($val_data);
+
+
         dd($request->all());
         $request->merge(['slug' => Str::slug($request->name)]);
         dd($request->validated());
 
         Type::create($request->validated());
+        return redirect()->back()->with('message', "Type added successfully");
     }
 
     /**
@@ -91,4 +105,14 @@ class TypeController extends Controller
     {
         //
     }
+
+    /*   private function validation($data)
+    {
+        $validator = Validator::make($data, [
+            'name' => 'required | unique:types',
+            'slug' => 'required'
+        ])->validate();
+
+        return $validator;
+    } */
 }

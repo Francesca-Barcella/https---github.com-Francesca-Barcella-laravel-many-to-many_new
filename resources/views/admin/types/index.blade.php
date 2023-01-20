@@ -4,10 +4,20 @@
 
 <h1>Types page</h1>
 
-<div class="conatiner-fluid">
+@if ($errors->any())
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
+
+<div class="container-fluid">
     <div class="row">
         <div class="col pe-4">
-            <form action="{{route ('admin.types.store')}}" method="post">
+            <form action="{{route('admin.types.store')}}" method="post">
                 @csrf
                 <div class="input-group mb-3">
                     <input id="name" name="name" type="text" class="form-control" placeholder="Type name" aria-label="Recipient's username" aria-describedby="button-addon">
