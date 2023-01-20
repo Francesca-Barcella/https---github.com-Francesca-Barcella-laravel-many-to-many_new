@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreTypeRequest;
+use App\Http\Requests\UpdateTypeRequest;
 use App\Models\Type;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class TypeController extends Controller
 {
@@ -26,7 +29,7 @@ class TypeController extends Controller
      */
     public function create()
     {
-       //
+        //
     }
 
     /**
@@ -35,11 +38,13 @@ class TypeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreTypeRequest $request)
     {
-        //dd($request->all());
+        dd($request->all());
+        $request->merge(['slug' => Str::slug($request->name)]);
+        dd($request->validated());
 
-
+        Type::create($request->validated());
     }
 
     /**
@@ -59,7 +64,7 @@ class TypeController extends Controller
      * @param  \App\Models\Type  $type
      * @return \Illuminate\Http\Response
      */
-    public function edit(Type $type)
+    public function edit(UpdateTypeRequest $type)
     {
         //
     }

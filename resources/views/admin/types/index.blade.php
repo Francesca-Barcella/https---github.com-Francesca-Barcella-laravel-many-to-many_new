@@ -9,9 +9,9 @@
         <div class="col pe-4">
             <form action="{{route ('admin.types.store')}}" method="post">
                 @csrf
-                <div class="input-group my-2">
-                    <input id="name" name="name" type="text" class="form-control" placeholder="Type name" aria-label="Recipient's username" aria-describedby="button-addon2">
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
+                <div class="input-group mb-3">
+                    <input id="name" name="name" type="text" class="form-control" placeholder="Type name" aria-label="Recipient's username" aria-describedby="button-addon">
+                    <button class="btn btn-outline-secondary" type="submit" id="button-addon">Button</button>
                 </div>
             </form>
 
